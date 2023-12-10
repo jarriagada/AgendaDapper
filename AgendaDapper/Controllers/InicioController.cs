@@ -41,7 +41,7 @@ namespace AgendaDapper.Controllers
 
         }
 
-        //Obtengo el cliente
+        //Obtengo el cliente para Editar
         [HttpGet]
         public IActionResult Editar(int? id)
         {
@@ -74,7 +74,18 @@ namespace AgendaDapper.Controllers
         }
 
 
+        //Obtengo el cliente para Borrar
+        [HttpGet]
+        public IActionResult Borrar(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
+            _repo.BorrarCliente(id.GetValueOrDefault());
+            return RedirectToAction(nameof(Index));
+        }
 
 
 
