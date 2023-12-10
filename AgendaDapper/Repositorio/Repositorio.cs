@@ -20,7 +20,7 @@ namespace AgendaDapper.Repositorio
 
         public Cliente ActualizarCliente(Cliente cliente)
         {
-            var sql = "UPDATE CLIENTE SET Nombres=@Nombres, Apellidos=@Apellidos, Telefono=@Telefono, Email=@Email, Pais=@Pais "
+            var sql = "UPDATE Cliente SET Nombres=@Nombres, Apellidos=@Apellidos, Telefono=@Telefono, Email=@Email, Pais=@Pais "
                 + " WHERE IdCliente =@IdCliente";
             _db.Execute(sql, cliente);
             return cliente;
@@ -51,7 +51,7 @@ namespace AgendaDapper.Repositorio
            
         
 
-        public void DeleteClient(int id)
+        public void BorrarCliente(int id)
         {
             /* query Dapper */
             var sql = "DELETE FROM CLIENTE WHERE IdCliente=@IdCliente";
@@ -59,7 +59,7 @@ namespace AgendaDapper.Repositorio
 
         }
 
-        public Cliente GetClient(int id)
+        public Cliente GetCliente(int id)
         {
             /* query Dapper */
             var sql = "SELECT * FROM CLIENTE WHERE IdCliente=@IdCliente";

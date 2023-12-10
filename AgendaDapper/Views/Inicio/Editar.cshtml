@@ -1,0 +1,63 @@
+﻿@model AgendaDapper.Models.Cliente
+@{
+    ViewData["Title"] = "Editar Cliente";
+}
+
+<h1>Editar Cliente</h1>
+
+<div class="row" id="contenedor1">
+    <div class="col-4 offset-4">
+        <form asp-action="Editar">
+
+            <!-- Enviar IdCliente como campo oculto -->
+            <input type="hidden" asp-for="IdCliente"/>
+
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombres" class="control-label"></label>
+                <input asp-for="Nombres" class="form-control" />
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Apellidos" class="control-label"></label>
+                <input asp-for="Apellidos" class="form-control" />
+                <span asp-validation-for="Apellidos" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Telefono" class="control-label"></label>
+                <input asp-for="Telefono" class="form-control" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Pais" class="control-label"></label>
+                <input asp-for="Pais" class="form-control" />
+                <span asp-validation-for="Pais" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FechaCreacion" class="control-label"></label>
+                <input asp-for="FechaCreacion" type="date" class="form-control" />
+                <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row mt-4">
+                <div class="col-6">
+                    <input type="submit" value="Editar Cliente" class="btn btn-outline-danger form-control" />
+                </div>
+                <div class="col-6">
+                    <a asp-action="Index" class="btn btn-warning form-control">Volver a lista</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -27,6 +27,7 @@ namespace AgendaDapper.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Crear([Bind("IdCliente, Nombres, Apellidos, Telefono, Email, Pais, FechaCreacion")] Cliente cliente)
         {
             if(ModelState.IsValid)
@@ -39,6 +40,43 @@ namespace AgendaDapper.Controllers
             return View(cliente);
 
         }
+
+        //Obtengo el cliente
+        [HttpGet]
+        public IActionResult Editar(int? id)
+        {
+            var cliente = _repo.GetCliente(id.GetValueOrDefault());
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+
+            return View(cliente);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Editar(int id, [Bind("IdCliente, Nombres, Apellidos, Telefono, Email, Pais, FechaCreacion")] Cliente cliente)
+        {
+            if (id != cliente.IdCliente)
+            {
+                return NotFound();
+            }
+
+
+            if (ModelState.IsValid)
+            {
+                _repo.ActualizarCliente(cliente);
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(cliente);
+        }
+
+
+
+
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

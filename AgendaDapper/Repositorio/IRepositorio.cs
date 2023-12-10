@@ -4,11 +4,12 @@ namespace AgendaDapper.Repositorio
 {
     public interface IRepositorio
     {
-        Cliente GetClient(int id);
+        Cliente GetCliente(int id);
         List<Cliente> GetClientes();
         Cliente AgregarCliente(Cliente cliente);
+        /* Editar Cliente */
         Cliente ActualizarCliente(Cliente cliente);
-        void DeleteClient(int id);
+        void BorrarCliente(int id);
 
     }
 }
