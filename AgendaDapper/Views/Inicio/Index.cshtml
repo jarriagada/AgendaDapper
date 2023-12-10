@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AgendaDapper.Models.Cliente>
+@{
+    ViewData["Title"] = "Lista de Clientes";
+}
+
+<h1>Administracion de Clientes</h1>
+
+<p>
+    <a asp-action="Crear" class="btn btn-primary">Agregar Cliente</a>
+
+</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.IdCliente)</th>
+                <th>@Html.DisplayNameFor(model => model.Nombres)</th>
+                <th>@Html.DisplayNameFor(model => model.Apellidos)</th>
+                <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+                <th>@Html.DisplayNameFor(model => model.Email)</th>
+                <th>@Html.DisplayNameFor(model => model.Pais)</th>
+                <th>@Html.DisplayNameFor(model => model.FechaCreacion)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+        {
+            <tr>
+                <th>@Html.DisplayFor(modelItem => item.IdCliente)</th>
+                <th>@Html.DisplayFor(modelItem => item.Nombres)</th>
+                <th>@Html.DisplayFor(modelItem => item.Apellidos)</th>
+                <th>@Html.DisplayFor(modelItem => item.Telefono)</th>
+                <th>@Html.DisplayFor(modelItem => item.Email)</th>
+                <th>@Html.DisplayFor(modelItem => item.Pais)</th>
+                <th>@Html.DisplayFor(modelItem => item.FechaCreacion)</th>
+
+                <th>
+                    <a asp-action="Editar" asp-route-id="@item.IdCliente" class="btn btn-info"> Editar </a>
+                    <a asp-action="Borrar" asp-route-id="@item.IdCliente" class="btn btn-danger">Borrar</a>
+                </th>
+
+            </tr>
+
+        }
+        </tbody>
+    </table>
+

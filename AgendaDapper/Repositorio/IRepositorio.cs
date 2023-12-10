@@ -7,7 +7,7 @@ namespace AgendaDapper.Repositorio
         Cliente GetClient(int id);
         List<Cliente> GetClientes();
         Cliente AgregarCliente(Cliente cliente);
-        Cliente ActualizarCliente(int id);
+        Cliente ActualizarCliente(Cliente cliente);
         void DeleteClient(int id);
 
     }
